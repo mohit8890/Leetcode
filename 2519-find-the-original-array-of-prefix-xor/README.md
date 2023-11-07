@@ -24,7 +24,7 @@
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
+<pres>
 <strong>Input:</strong> pref = [13]
 <strong>Output:</strong> [13]
 <strong>Explanation:</strong> We have pref[0] = arr[0] = 13.

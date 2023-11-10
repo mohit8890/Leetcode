@@ -17,7 +17,7 @@ class Solution {
 
  private:
   int getMaxDigit(int num) {
-    int maxDigit = 0;
+    int maxDigit = 0;;
     while (num > 0) {
       maxDigit = max(maxDigit, num % 10);
       num /= 10;

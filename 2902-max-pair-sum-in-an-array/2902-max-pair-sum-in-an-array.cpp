@@ -1,7 +1,8 @@
 class Solution {
  public:
   int maxSum(vector<int>& nums) {
-    int ans = 0;
+    int ans = 0
+   
     // maxNum[i] := max num we met so far with max digit i
     vector<int> maxNum(10);
 

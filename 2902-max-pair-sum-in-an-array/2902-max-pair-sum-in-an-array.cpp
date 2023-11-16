@@ -4,6 +4,7 @@ class Solution {
     int ans = 0
    
     // maxNum[i] := max num we met so far with max digit i
+   
     vector<int> maxNum(10);
 
     for (const int num : nums) {

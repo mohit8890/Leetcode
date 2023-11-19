@@ -7,6 +7,7 @@ class Solution {
    
     vector<int> maxNum(10);
 
+   
     for (const int num : nums) {
       const int d = getMaxDigit(num);
       if (maxNum[d] > 0)

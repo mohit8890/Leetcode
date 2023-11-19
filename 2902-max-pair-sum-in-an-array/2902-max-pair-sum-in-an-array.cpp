@@ -13,6 +13,7 @@ class Solution {
         ans = max(ans, num + maxNum[d]);
       maxNum[d] = max(maxNum[d], num);
     }
+   
 
     return ans == 0 ? -1 : ans;
   }

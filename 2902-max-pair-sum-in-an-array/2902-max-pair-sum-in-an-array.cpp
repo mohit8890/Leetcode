@@ -6,6 +6,7 @@ class Solution {
     // maxNum[i] := max num we met so far with max digit i
    
     vector<int> maxNum(10);
+   
 
 
    

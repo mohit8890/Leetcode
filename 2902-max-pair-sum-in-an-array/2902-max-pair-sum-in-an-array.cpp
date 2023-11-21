@@ -6,12 +6,7 @@ class Solution {
     // maxNum[i] := max num we met so far with max digit i
    
     vector<int> maxNum(10);
-   
-   
-
-
-   
-    for (const int num : nums) {
+   for (const int num : nums) {
       const int d = getMaxDigit(num);
       if (maxNum[d] > 0)
         ans = max(ans, num + maxNum[d]);

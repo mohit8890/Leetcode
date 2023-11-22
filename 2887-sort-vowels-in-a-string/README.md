@@ -18,6 +18,7 @@
 <strong>Explanation:</strong> &#39;E&#39;, &#39;O&#39;, and &#39;e&#39; are the vowels in s; &#39;l&#39;, &#39;t&#39;, &#39;c&#39;, and &#39;d&#39; are all consonants. The vowels are sorted according to their ASCII values, and the consonants remain in the same places.
 </pre>
 
+
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>

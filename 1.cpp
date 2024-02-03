@@ -1,13 +1,14 @@
-// Error - 1 We have use the semicolon to end the statement instead of : (Corrected on line 9)
-// Error - 2 Comment are done using 2 // and not single / (Corrected on line 11)
-
+// In Line-8 it was int8_t so I corrected it to int (Corrected line-8)
+// In the for loop on Line-9 i should begin from 1 and go to n. int i = 1; i<=n (i should be less than equal to n and not less than n) (Corrected line-9)
 #include<iostream>
 using namespace std;
-void main() {
-	int i=0;
-	i=i+1;
-	cout<<i;
-	/*print i \*/
-    //i=i+1
-	cout<<++i;
+int main(){
+    int n; 
+    cin>>n;
+    int sum=0;
+    for(int i=1;i<=n;++i){
+        sum+=i;
+    }
+    cout<<sum<<endl;
+    return 0;
 }

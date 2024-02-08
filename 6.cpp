@@ -1,22 +1,17 @@
-// Error - 1 We need to start the inner for loop from i + 1 because the first number in the row is row-number + 1. (Corrected Line - 12)
-// Error - 2 In the if condition of inner forloop 
-            // j == i+1 For printing the first column as there are no spaces
-            // j == n-i-1 is changed to j == n because we have to print the number which is equal to n at the end only. (Corrected Line-13)
-            // i==0 Because we have to print numbers and not spaces in the first row
+// In line-6, intialize the ans = 0 else it will take some garbage value and produce false result (Corrected Line - 6)
+// In Line-9, we need to do ans += (b%10)*(1<<c++) --> (Corrected Line-9) as if we do just ans = (b%10)*(1<<c++) then only last bit would be considered and we would get the answer on the basis of last bit only
 #include<iostream>
 using namespace std;
-int main(){
-    int n;
-    cin>>n;
-    for(int i=0;i<n;++i){
-        for(int j=i+1;j<=n;j++){
-            if(j==i+1 || j == n  || i == 0){
-                cout<<j;
-            }
-            else{
-                cout<<" ";
-            }
-        }
-        cout<<endl;
+int binaryToDecimal(int b){
+    int ans = 0;
+    int c=0;
+    while(b){
+        ans+=(b % 10) * (1 << c++);
+        b/=10;
     }
+    return ans;
+}
+int main(){
+    cout<<binaryToDecimal(1010);
+    return 0;
 }

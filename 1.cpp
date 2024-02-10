@@ -1,14 +1,11 @@
-// In Line-8 it was int8_t so I corrected it to int (Corrected line-8)
-// In the for loop on Line-9 i should begin from 1 and go to n. int i = 1; i<=n (i should be less than equal to n and not less than n) (Corrected line-9)
+// Array Index will start from 0 and not 1. The last index in the array is size - 1 where size is the number of elements in the array.
+// Change the loop from (i = 1 to i<=5) to (i = 0 to i<5) 
 #include<iostream>
 using namespace std;
-int main(){
-    int n; 
-    cin>>n;
-    int sum=0;
-    for(int i=1;i<=n;++i){
-        sum+=i;
-    }
-    cout<<sum<<endl;
-    return 0;
+int main() {
+   int arr[5] = {1, 2, 3, 4, 5};
+   for(int i = 0; i < 5; i++) {
+      cout << arr[i] << " ";
+   }  
+   return 0;
 }

@@ -1,24 +1,35 @@
-// First of all in Line-14, we have not declared j and we are using it so corrected it to int j = 1 (Corrected line-14)
-// As we can see that we need to print the palindrome and hence we need to start from 2*i-1 rather than i-1(Corrected line-14)
-// Also in the if condition it was if(1 || j<=k), In this j<=k is not checked at all as OR with 1 always give true and hence removed 1 || and changed the if condition to if(j<=k) --> Corrected line-15
-#include <iostream>
+// As the hint given to us is that it is an incomplete code, our direction of thinking should be that only.
+// The candidate is returned directly without checking that whether the count of the candidate is greater than n/2 or not.
+#include<iostream>
+#include<vector>
 using namespace std;
-int main(){
-    int k, n;
-    cout << "Enter the number of rows : ";
-    cin >> n;
-    cout << " ";
-    for (int i = 1; i <= n; i++){
-        for (int j = 1; j <= n - i; j++)
-            cout << " ";
-        for (int j = 1, k = 2*i - 1; j <= 2 * i - 1; j++, k--){
-            if (j <= k)
-                cout << j;
-            else
-                cout << k;
+int majorityElement(vector<int>& nums) {
+    int candidate,count = 0;
+    // No n/2 is checked in the below condition
+    for (int i = 0; i < nums.size(); i++) {
+        if (count == 0) {
+            candidate = nums[i];
         }
-        cout << endl;
-        cout << " ";
+        if (nums[i] == candidate) {
+            count++;
+        } else {
+            count--;
+        }
     }
+    // Additional code for checking the candidate is actually the candidate or not.
+    int cnt = 0;
+    for(int i = 0;i<nums.size();i++){
+        if(candidate == nums[i]){
+            cnt++;
+        }
+    }
+    int ans = 0;
+    (cnt > (nums.size()/2)) ? (ans = candidate) : (ans = -1);
+    return ans;
+}
+
+int main() {
+    vector<int> nums = {1,2,3,2,2,2,4};
+    cout <<"The majority element is: "<< majorityElement(nums);
     return 0;
 }

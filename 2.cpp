@@ -1,35 +1,30 @@
-// As the hint given to us is that it is an incomplete code, our direction of thinking should be that only.
-// The candidate is returned directly without checking that whether the count of the candidate is greater than n/2 or not.
-#include<iostream>
-#include<vector>
-using namespace std;
-int majorityElement(vector<int>& nums) {
-    int candidate,count = 0;
-    // No n/2 is checked in the below condition
-    for (int i = 0; i < nums.size(); i++) {
-        if (count == 0) {
-            candidate = nums[i];
-        }
-        if (nums[i] == candidate) {
-            count++;
-        } else {
-            count--;
-        }
-    }
-    // Additional code for checking the candidate is actually the candidate or not.
-    int cnt = 0;
-    for(int i = 0;i<nums.size();i++){
-        if(candidate == nums[i]){
-            cnt++;
-        }
-    }
-    int ans = 0;
-    (cnt > (nums.size()/2)) ? (ans = candidate) : (ans = -1);
-    return ans;
-}
+// There is no error in the code. The ciel of target = 3 will be 3 only i.e greater or equal value. So index will be returned and that is 2.
 
-int main() {
-    vector<int> nums = {1,2,3,2,2,2,4};
-    cout <<"The majority element is: "<< majorityElement(nums);
+#include<iostream>
+using namespace std;
+int ceilIndex(int arr[], int n, int target) {
+    int left = 0;
+    int right = n - 1;
+    int ceil = -1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] < target)
+            left = mid + 1;
+        else {
+            ceil = mid;
+            right = mid - 1;
+        }
+    }
+
+    return ceil;
+}
+int main(){
+    int arr[] = {1,2,3,4,5};
+    int n = 5;
+    int target = 3; // Index = 2 should be the answer
+    cout<<ceilIndex(arr,n,target);
     return 0;
 }

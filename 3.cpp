@@ -1,25 +1,24 @@
+// Selection sort is based on the idea that to put the minimum element for that particular pass to its right place.
+// The logic for calculating the index of minimum element was right but then placing it at the right place was wrong.
+// So simply put swap(arr[i],arr[minIndex]) instead of swap(arr[j],arr[minIndex]) as i was taken to be the initial element and that need to be swapped with the minimum element.
+
 #include<iostream>
 using namespace std;
-void moveNegative(int arr[], int n){
-    int i=0, j=n-1;
-    while(i<j){
-        while(arr[i]<0){ // swap when a positive element is encountered
-            i++;
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1;j < n; j++) {
+            if (arr[j] < arr[minIndex])
+                minIndex = j;
         }
-        while(arr[j]>0){ // swap when a negative element is encountered
-            j--;
-        }
-        // Additional condition to check whether i<j. This condition we have also discussed in the code of quick sort while doing the partition.
-        if(i<j)
-            swap(arr[i], arr[j]); // swap the elements
+        swap(arr[i],arr[minIndex]);
     }
 }
 int main(){
+    int arr[] = {5,2,4,1,3};
     int n = 5;
-    int arr[n] = {2, -3, -1, 5, -4};
-    moveNegative(arr, n);
-    for(int i=0;i<n;i++){
+    selectionSort(arr,n);
+    for(int i =0;i<n;i++){
         cout<<arr[i]<<" ";
     }
-    return 0;
 }

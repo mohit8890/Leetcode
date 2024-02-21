@@ -1,30 +1,28 @@
-// The code was correct but there were no return statements for the recursive calls. So added those recursive calls.
-// Also the formulae of mid should be written as left + (right - left)/2 so as to avoid integer out of range problem.
-#include <iostream>
+// There should be no return statement giving a value inside the void function. return; can be used in void however. So removed return str
+// Also in strings, to mark the end we will use the inbuilt length function of the string i.e str.length()
+#include<iostream>
+#include<vector>
 using namespace std;
-
-int binarySearch(int arr[], int left, int right, int x) {
-    if (right >= left) {
-        // int mid = (left + right) / 2;
-        int mid = left + (right - left)/2;
-        if (arr[mid] == x)
-            return mid;
-        else if (arr[mid] > x)
-            return binarySearch(arr, left, mid - 1, x);
+void reverseWords(string s)
+{
+    vector<string> tmp;
+    string str = "";
+    for (int i = 0; i<s.length(); i++) {
+        if (s[i] == ' ') {
+            tmp.push_back(str);
+            str = "";
+        }
         else
-            return binarySearch(arr, mid+1, right, x);
+            str += s[i];
     }
-    return -1;
+    tmp.push_back(str);
+    // Additional code for main function
+    for(int i = 0;i<tmp.size();i++){
+        cout<<tmp[i]<<" ";
+    }
 }
-
-int main() {
-    int arr[] = { 2, 3, 4, 10, 40 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int x = 10;
-    int result = binarySearch(arr, 0, n - 1, x);
-    if (result == -1)
-        cout << "Element not found.";
-    else
-        cout << "Element found at index " << result << endl;
+int main(){
+    reverseWords("Hello World");
     return 0;
+
 }

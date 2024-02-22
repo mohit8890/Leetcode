@@ -1,30 +1,27 @@
-// There is no error in the code. The ciel of target = 3 will be 3 only i.e greater or equal value. So index will be returned and that is 2.
+// While finding the maximum value, we need to compare with the minimum value and we took here INT_MIN
+// Consdier the example of string ssaa, here if we use max<=count[str[i]] then a would be the answer but we were suppossed to find the first maximum occuring character and hence we need to use < symbol only.
 
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int ceilIndex(int arr[], int n, int target) {
-    int left = 0;
-    int right = n - 1;
-    int ceil = -1;
-
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid] == target)
-            return mid;
-        else if (arr[mid] < target)
-            left = mid + 1;
-        else {
-            ceil = mid;
-            right = mid - 1;
+ 
+char maxOccurring(char* str)
+{
+    int count[256] = {0};
+    int max = INT_MIN; // Modification done
+    char answer;
+ 
+    for (int i = 0; str[i] != '\0'; i++) {
+        count[str[i]]++;
+        if (max < count[str[i]]) { // Modification done
+            max = count[str[i]];
+            answer= str[i];
         }
     }
-
-    return ceil;
+    return answer;
 }
-int main(){
-    int arr[] = {1,2,3,4,5};
-    int n = 5;
-    int target = 3; // Index = 2 should be the answer
-    cout<<ceilIndex(arr,n,target);
-    return 0;
+
+int main()
+{
+    char str[] = "ssaa";
+    cout << maxOccurring(str);
 }

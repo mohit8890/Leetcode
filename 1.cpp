@@ -1,28 +1,25 @@
-// There should be no return statement giving a value inside the void function. return; can be used in void however. So removed return str
-// Also in strings, to mark the end we will use the inbuilt length function of the string i.e str.length()
-#include<iostream>
-#include<vector>
+// In Sieve of Eratosthenes, we have to consider a prime number and then mark all the multiple of prime as non-prime i.e. false
+// prime[p] == false --> prime[p] == true => Considering a prime number which is indicated by true value
+// prime[i] == true --> prime[i] == false => Marking multiples of prime as non prime which is indicated by false.
+#include <bits/stdc++.h>
 using namespace std;
-void reverseWords(string s)
-{
-    vector<string> tmp;
-    string str = "";
-    for (int i = 0; i<s.length(); i++) {
-        if (s[i] == ' ') {
-            tmp.push_back(str);
-            str = "";
-        }
-        else
-            str += s[i];
-    }
-    tmp.push_back(str);
-    // Additional code for main function
-    for(int i = 0;i<tmp.size();i++){
-        cout<<tmp[i]<<" ";
-    }
-}
-int main(){
-    reverseWords("Hello World");
-    return 0;
 
+void SieveOfEratosthenes(int n) {
+	vector<bool> prime(n,true);
+	for (int p = 2; p * p <= n; p++) {
+		if (prime[p] == true) {
+			for (int i = p * p; i <= n; i += p)
+				prime[i] = false;
+		}
+	}
+
+	for (int p = 2; p <= n; p++)
+		if (prime[p])
+			cout << p << " ";
+}
+
+int main() {
+	int n = 50;
+	SieveOfEratosthenes(n);
+	return 0;
 }

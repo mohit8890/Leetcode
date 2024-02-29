@@ -1,14 +1,12 @@
-// This code will put the characters from character array to the string and hence LAKSHAY will be prined when string j is printed.
+// The question is to find the third element means 3rd position i.e. 2nd index element
+// *(ptr + i) = arr[i];
+// Hence update *(ptr + 3) to *(ptr + 2) to find the 2nd index element
+#include<iostream>
+using namespace std;
 
-#include <iostream>  
-using namespace std;  
-int main() {  
-    char char_array[] = {'L','A','K','S','H','A','Y'};  
-    int array_size = sizeof(char_array);  
-    string j = "";  
-    int i;  
-    for(i = 0; i<array_size; i++) {    
-        j = j + char_array[i];  
-    }  
-    cout << j <<endl;  
+int main(){
+    int arr[5] = {1, 2, 3, 4, 5};
+    int* ptr = arr;
+    cout << "The value of the third element in arr is " << *(ptr + 2) << endl;
+    return 0;
 }

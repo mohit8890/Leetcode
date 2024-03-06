@@ -1,29 +1,13 @@
-// We need to include cstring header file to use strlen function. Rest the output is fine here.
 #include<iostream>
-#include<cstring>
 using namespace std;
-void replacePi(char input[]) {
-	if(input[0] == '\0'){
-        return;
-    }
-    if(input[0] == 'p' && input[1] == 'i'){
-        int n = strlen(input);
-        int i = 2;
-        for(i = n+1; i >= 2; i--){
-            input[i] = input[i-2];
-        }
-        input[n+2] = '\0';
-        input[0] = '3';
-        input[1] = '.';
-        input[2] = '1';
-        input[3] = '4';
-        replacePi(input + 1);
-    }
-    replacePi(input + 1);
+int* foo() {
+    int *p = new int; // Dyanamic memory allocation. However previous code was also working.
+    *p = 10; // Value present is changed to 10. Actualy value is updated as pointer is pointing to the actual value
+    return p;
 }
-int main(){
-    char input[] = "xpix";
-    replacePi(input);
-    cout<<input;
+
+int main() {
+    int* q = foo();
+    cout << *q << endl; // Expected output: 10, Actual output: some random value
     return 0;
 }
